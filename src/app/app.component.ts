@@ -17,5 +17,6 @@ export class AppComponent {
 
   handlePerformedEvent() {
     this.onInvoicesView = true;
+    this.selectedItems = [];
   }
 }
