@@ -1,79 +1,81 @@
 <button class="btn btn-outline-secondary btn-sm" (click)="returnToInvoices()">
   Invoices
 </button>
-<div class="card-header">
-  <div class="d-flex justify-content-between align-items-center">
-    <div>
-      Invoice No 1
-      <span class="badge rounded-pill bg-dark fs-12">2023/04/0021</span>
-    </div>
-    <div>
-      Status
-      <span class="badge rounded-pill bg-dark fs-12">Active</span>
-    </div>
-    <div>
-      OBR reporting
-      <span class="badge rounded-pill bg-dark fs-12">Not creted</span>
-    </div>
-    <div>
-      Table
-      <span class="badge rounded-pill bg-dark fs-12">Comptoire (2)</span>
-    </div>
-    <div>
-      Date
-      <span class="badge rounded-pill bg-dark fs-12">(15/05/2023)</span>
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        Invoice No 1
+        <span class="badge rounded-pill bg-dark fs-12">2023/04/0021</span>
+      </div>
+      <div>
+        Status
+        <span class="badge rounded-pill bg-dark fs-12">Active</span>
+      </div>
+      <div>
+        OBR reporting
+        <span class="badge rounded-pill bg-dark fs-12">Not creted</span>
+      </div>
+      <div>
+        Table
+        <span class="badge rounded-pill bg-dark fs-12">Comptoire (2)</span>
+      </div>
+      <div>
+        Date
+        <span class="badge rounded-pill bg-dark fs-12">(15/05/2023)</span>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="card-body">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Qty</th>
-        <th scope="col">Item</th>
-        <th scope="col">Unity Price</th>
-        <th scope="col">Total Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row" colspan="100%">Sold Items</th>
-      </tr>
-      <tr *ngFor="let item of items">
-        <th scope="row" class="d-flex">
-          <button class="btn btn-danger btn-sm" (click)="decrement(item)">
-            -
-          </button>
-          <input
-            type="number"
-            class="form-control w-25"
-            min="0"
-            [(ngModel)]="item.quantity"
-          />
-          <button class="btn btn-dark btn-sm" (click)="increment(item)">
-            +
-          </button>
-        </th>
-        <td>{{ item.name }}</td>
-        <td>{{ useFormattedMoney(item.price) }}</td>
-        <td>{{ useFormattedMoney(item.price * item.quantity) }}</td>
-      </tr>
-      <tr *ngIf="items.length">
-        <td colspan="3" class="text-end"><b>Total</b></td>
-        <td>{{ useFormattedMoney(totalPrice) }}</td>
-      </tr>
-    </tbody>
-  </table>
-  <!-- <table class="table">
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Qty</th>
+          <th scope="col">Item</th>
+          <th scope="col">Unity Price</th>
+          <th scope="col">Total Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" colspan="100%">Sold Items</th>
+        </tr>
+        <tr *ngFor="let item of items">
+          <th scope="row" class="d-flex">
+            <button class="btn btn-danger btn-sm" (click)="decrement(item)">
+              -
+            </button>
+            <input
+              type="number"
+              class="form-control w-25"
+              min="0"
+              [(ngModel)]="item.quantity"
+            />
+            <button class="btn btn-dark btn-sm" (click)="increment(item)">
+              +
+            </button>
+          </th>
+          <td>{{ item.name }}</td>
+          <td>{{ useFormattedMoney(item.price) }}</td>
+          <td>{{ useFormattedMoney(item.price * item.quantity) }}</td>
+        </tr>
+        <tr *ngIf="items.length">
+          <td colspan="3" class="text-end"><b>Total</b></td>
+          <td>{{ useFormattedMoney(totalPrice) }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <table class="table">
     <tbody>
     </tbody>
   </table> -->
-</div>
+  </div>
 
-<div class="card-footer" *ngIf="items.length">
-  <button class="btn btn-danger btn-sm me-2" (click)="cancelInvoice()">
-    Cancel
-  </button>
-  <button class="btn btn-primary btn-sm" (click)="saveInvoice()">Save</button>
+  <div class="card-footer" *ngIf="items.length">
+    <button class="btn btn-danger btn-sm me-2" (click)="cancelInvoice()">
+      Cancel
+    </button>
+    <button class="btn btn-primary btn-sm" (click)="saveInvoice()">Save</button>
+  </div>
 </div>

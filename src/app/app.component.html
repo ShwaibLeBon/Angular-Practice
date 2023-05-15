@@ -9,14 +9,12 @@
         </div>
       </div>
       <div class="col">
-        <div class="card">
-          <app-invoices-list *ngIf="onInvoicesView"></app-invoices-list>
-          <app-active-invoice
-            [items]="selectedItems"
-            (eventPerfomed)="handlePerformedEvent()"
-            *ngIf="!onInvoicesView"
-          ></app-active-invoice>
-        </div>
+        <app-invoices-list *ngIf="onInvoicesView"></app-invoices-list>
+        <app-active-invoice
+          [items]="selectedItems"
+          (eventPerfomed)="handlePerformedEvent()"
+          *ngIf="!onInvoicesView"
+        ></app-active-invoice>
       </div>
     </div>
   </section>
