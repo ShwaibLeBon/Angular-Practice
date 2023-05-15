@@ -3,21 +3,26 @@
     <h5 class="m-0">Invoices</h5>
     <button class="btn btn-secondary btn-sm">Search</button>
   </div>
+
   <div class="card-body">
     <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Date</th>
+          <th scope="col">Number</th>
+          <th scope="col">Customer</th>
           <th scope="col">Total</th>
+          <th scope="col">Date</th>
         </tr>
       </thead>
       <tbody>
-        <!-- <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-      </tr> -->
+        <tr *ngFor="let item of invoices; index as i">
+          <th scope="row">{{ item["id"] }}</th>
+          <td>{{ item["number"] }}</td>
+          <td>{{ item["customerName"] }}</td>
+          <td>{{ useFormattedMoney(item["total"]) }}</td>
+          <td>{{ item["createdAt"] }}</td>
+        </tr>
       </tbody>
     </table>
   </div>

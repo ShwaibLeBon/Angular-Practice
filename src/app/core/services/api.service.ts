@@ -10,7 +10,7 @@ import { catchError } from 'rxjs/operators';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  environment = 'http://127.0.0.1:8080/';
+  environment = 'http://localhost:8080/';
 
   private formatErrors(error: any) {
     return throwError(error.error);
