@@ -1,0 +1,23 @@
+<main>
+  <section class="container-fluid py-4">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <app-items (selectedItem)="handleSelectedItem($event)"></app-items>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <app-invoices-list *ngIf="onInvoicesView"></app-invoices-list>
+          <app-active-invoice
+            [items]="selectedItems"
+            (eventPerfomed)="handlePerformedEvent()"
+            *ngIf="!onInvoicesView"
+          ></app-active-invoice>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

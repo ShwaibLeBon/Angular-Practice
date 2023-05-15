@@ -1,0 +1,12 @@
+<div class="d-flex flex-wrap gap-1">
+  <div
+    *ngFor="let item of items"
+    (click)="selectItem(item)"
+    class="text-uppercase px-2 pt-2 pb-4 bg-black text-light rounded position-relative"
+  >
+    <p class="fs-14">{{ item.name }}</p>
+    <div class="price-tag bg-primary rounded p-1 fs-12">
+      {{ useFormattedMoney(item.price) }}
+    </div>
+  </div>
+</div>
