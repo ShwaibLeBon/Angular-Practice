@@ -6,12 +6,14 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {
   ItemsComponent,
   ActiveInvoiceComponent,
   InvoicesListComponent,
 } from './shared/components';
 import { SplitInvoiceDialogComponent } from './shared/components/split-invoice-dialog/split-invoice-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,15 @@ import { SplitInvoiceDialogComponent } from './shared/components/split-invoice-d
     ActiveInvoiceComponent,
     SplitInvoiceDialogComponent,
   ],
-  imports: [AppRoutingModule, CoreModule, BrowserModule, FormsModule],
+  imports: [
+    MatSlideToggleModule,
+    AppRoutingModule,
+    CoreModule,
+    BrowserModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    // NgxsModule.forRoot([PersonState], ngxsConfig),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
