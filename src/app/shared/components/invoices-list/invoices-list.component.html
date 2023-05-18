@@ -13,6 +13,7 @@
           <th scope="col">Customer</th>
           <th scope="col">Total</th>
           <th scope="col">Date</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -20,8 +21,13 @@
           <th scope="row">{{ item["id"] }}</th>
           <td>{{ item["number"] }}</td>
           <td>{{ item["customerName"] }}</td>
-          <td>{{ useFormattedMoney(item["total"]) }}</td>
+          <td>{{ useFormattedMoney(item["total"]) + " FBu" }}</td>
           <td>{{ item["createdAt"] }}</td>
+          <td>
+            <button class="btn btn-dark btn-sm" (click)="openDialog(item)">
+              Split
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
