@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 // import { StoreModule } from '@ngxs/store';
 // import { NgxsModule, NgxsModuleOptions } from '@ngxs/store';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {
   ItemsComponent,
   ActiveInvoiceComponent,
   InvoicesListComponent,
 } from './shared/components';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // export const ngxsConfig: NgxsModuleOptions = {
 //   developmentMode: true,
@@ -36,10 +38,12 @@ import { FormsModule } from '@angular/forms';
     ActiveInvoiceComponent,
   ],
   imports: [
+    MatSlideToggleModule,
     AppRoutingModule,
     CoreModule,
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule,
     // StatesModule,
     // StoreModule.forRoot({ PersonState }, {}),
     // NgxsModule.forRoot([PersonState], ngxsConfig),
