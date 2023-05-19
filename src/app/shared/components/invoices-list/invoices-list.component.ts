@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { InvoicesService } from 'src/app/core';
-import { MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SplitInvoiceDialogComponent } from '../split-invoice-dialog/split-invoice-dialog.component';
 
 @Component({
@@ -8,11 +8,11 @@ import { SplitInvoiceDialogComponent } from '../split-invoice-dialog/split-invoi
   templateUrl: './invoices-list.component.html',
   styleUrls: ['./invoices-list.component.scss'],
 })
-export class InvoicesListComponent implements OnInit {
-  invoices = [];
+// export class InvoicesListComponent implements OnInit {
+//   invoices = [];
 
-//DECOMMENTER KUGIRA UKORESHE STATIC VALUES ZA ITEMS 
-/*export class InvoicesListComponent {
+// //DECOMMENTER KUGIRA UKORESHE STATIC VALUES ZA ITEMS
+export class InvoicesListComponent {
   invoices = [
     {
       id: 1,
@@ -38,19 +38,19 @@ export class InvoicesListComponent implements OnInit {
       createdAt: '2023-05-12T14:01:15.173Z',
       updatedAt: '2023-05-12T14:01:15.173Z',
     },
-  ];*/
+  ];
 
   constructor(
     private invoiceService: InvoicesService,
     private dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {
-    this.invoiceService.getInvoices().subscribe((invoice: any) => {
-      this.invoices = invoice;
-      console.log("items fetched", this.invoices)
-    });
-  }
+  // ngOnInit(): void {
+  //   this.invoiceService.getInvoices().subscribe((invoice: any) => {
+  //     this.invoices = invoice;
+  //     console.log('items fetched', this.invoices);
+  //   });
+  // }
 
   @Output() selectedItem = new EventEmitter();
 

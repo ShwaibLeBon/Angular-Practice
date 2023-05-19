@@ -1,37 +1,37 @@
-<h1 mat-dialog-title>Hi {{data.customerName}}</h1>
-<div class="card-body">
-    <table class="table table-striped">
-      <tbody>
-        <tr >
-          <th>Number of clients </th>
-          <th scope="row" class="d-flex">
-            <input
-              type="number"
-              class="form-control w-25"
-              min="0"
-              [(ngModel)]="nbClient"
-            />
-          </th>
-        </tr>
-          <div class="card-body">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">Article</th>
-                  <th scope="col">Qt Total</th>
-                  <th scope="col">Client 1</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr >
-                  <td>14</td>
-                  <td>13</td>
-                  <td>12</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-      </tbody>
-    </table>
+<h1 mat-dialog-title>Hi {{ data.customerName }}</h1>
+<div mat-dialog-content>
+  <div>
+    <span>Number of clients: {{ nbClient }}</span>
+    <input
+      type="number"
+      class="form-control"
+      size="sm"
+      min="1"
+      [max]="numbers.length"
+      [(ngModel)]="nbClient"
+    />
   </div>
+  <table class="table table-striped w-100 mt-2">
+    <thead>
+      <tr>
+        <th scope="col">Article</th>
+        <th scope="col">Qt Total</th>
+        <th scope="col" *ngFor="let num of counter(nbClient); let i = index">
+          Client {{ i + 1 }}
+        </th>
+        <th scope="col">Reste non attribué</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>14</td>
+        <td>13</td>
+        <td *ngFor="let num of counter(nbClient); let i = index">
+          <!-- {{ "item" + (i + 1) }} -->
+          <input type="number" class="form-control" />
+        </td>
+        <td>10</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
