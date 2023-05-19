@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {
   ItemsComponent,
   ActiveInvoiceComponent,
@@ -30,6 +32,8 @@ import { InvoiceDetailComponent } from './shared/components/invoice-detail/invoi
     MatSlideToggleModule,
     MatDialogModule,
     AppRoutingModule,
+    MatInputModule,
+    MatFormFieldModule,
     CoreModule,
     BrowserModule,
     FormsModule,

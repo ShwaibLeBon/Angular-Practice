@@ -4,9 +4,12 @@
     (click)="selectItem(item)"
     class="text-uppercase px-2 pt-2 pb-4 bg-black text-light rounded position-relative"
   >
-    <p class="fs-14">{{ item.name }}</p>
-    <div class="price-tag bg-primary rounded p-1 fs-12">
-      {{ useFormattedMoney(item.price) }}
+    <p class="fs-14">{{ item['name'] }}</p>
+    <div class="price-tag bg-primary rounded p-1 ">
+      {{ useFormattedMoney(item['salePrice']) }}
+    </div>
+    <div class="quantity-tag bg-warning rounded p-1">
+      {{ useFormattedMoney(item['quantity']) }}
     </div>
   </div>
 </div>

@@ -1,10 +1,37 @@
-<h2 mat-dialog-title>Hello</h2>
+<h1 mat-dialog-title>Hi {{data.customerName}}</h1>
+<div class="card-body">
+    <table class="table table-striped">
+      <tbody>
+        <tr >
+          <th>Number of clients </th>
+          <th scope="row" class="d-flex">
+            <input
+              type="number"
+              class="form-control w-25"
+              min="0"
+              [(ngModel)]="nbClient"
+            />
+          </th>
+        </tr>
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Article</th>
+                  <th scope="col">Qt Total</th>
+                  <th scope="col">Client 1</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr >
+                  <td>14</td>
+                  <td>13</td>
+                  <td>12</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-<div mat-dialog-content>
-  <p>{{ data.customerName }}</p>
-</div>
-
-<!-- <mat-dialog-actions>
-  <button class="mat-raised-button">Close</button>
-  <button class="mat-raised-button mat-primary">Save</button>
-</mat-dialog-actions> -->
+      </tbody>
+    </table>
+  </div>

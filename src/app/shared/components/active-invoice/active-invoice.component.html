@@ -57,8 +57,8 @@
             </button>
           </th>
           <td>{{ item.name }}</td>
-          <td>{{ useFormattedMoney(item.price) }}</td>
-          <td>{{ useFormattedMoney(item.price * item.quantity) }}</td>
+          <td>{{ useFormattedMoney(item.salePrice) }}</td>
+          <td>{{ useFormattedMoney(item.salePrice * item.quantity) }}</td>
         </tr>
         <tr *ngIf="items.length">
           <td colspan="3" class="text-end"><b>Total</b></td>
