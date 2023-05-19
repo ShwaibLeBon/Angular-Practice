@@ -606,6 +606,10 @@ export class InvoicesListComponent {
     this.selectedItem.emit(item);
   }
 
+  viewDetail(item: any) {
+    this.selectedItem.emit(item);
+  }
+
   openDialog(data: any) {
     this.dialog.open(SplitInvoiceDialogComponent, {
       data: data,

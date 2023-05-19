@@ -15,6 +15,7 @@ import {
 } from './shared/components';
 import { SplitInvoiceDialogComponent } from './shared/components/split-invoice-dialog/split-invoice-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InvoiceDetailComponent } from './shared/components/invoice-detail/invoice-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InvoicesListComponent,
     ActiveInvoiceComponent,
     SplitInvoiceDialogComponent,
+    InvoiceDetailComponent,
   ],
   imports: [
     MatSlideToggleModule,

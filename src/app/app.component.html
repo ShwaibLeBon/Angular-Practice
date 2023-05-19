@@ -9,13 +9,21 @@
         </div>
       </div>
       <div class="col">
-        <mat-slide-toggle>Toggle me!</mat-slide-toggle>
-        <app-invoices-list *ngIf="onInvoicesView"></app-invoices-list>
+        <app-invoices-list
+          *ngIf="onInvoicesView"
+          (selectedItem)="handleSelectedInvoice($event)"
+        ></app-invoices-list>
         <app-active-invoice
           [items]="selectedItems"
           (eventPerfomed)="handlePerformedEvent()"
-          *ngIf="!onInvoicesView"
+          *ngIf="!onInvoicesView && !isViewingInvoiceDetails"
         ></app-active-invoice>
+
+        <app-invoice-detail
+          [item]="selectedInvoice"
+          (eventPerfomed)="handlePerformedEvent()"
+          *ngIf="isViewingInvoiceDetails"
+        ></app-invoice-detail>
       </div>
     </div>
   </section>
