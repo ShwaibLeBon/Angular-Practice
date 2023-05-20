@@ -11,6 +11,7 @@ export class ActiveInvoiceComponent {
   invoiceId: number = 2023040021;
   quantity: any = 1;
   totalPrice: any = 0;
+  cleanedItems:any = []
 
   constructor(private invoiceService: InvoicesService) {}
 
@@ -44,7 +45,18 @@ export class ActiveInvoiceComponent {
       customer_name: 'Shwaib LeBon',
       total: this.totalPrice,
     };
-    const data = {invoice:invoice, data:this.items}
+
+    this.items.forEach((x:any)=>{
+      const data = {
+        itemId:x.id,
+        quantity:x.quantity,
+        unit_price:x.salePrice,
+        totalPrice:x.quantity*x.salePrice
+      }
+      this.cleanedItems.push(data)
+    })
+
+    const data = {invoice:invoice, data:this.cleanedItems}
     this.invoiceService.createInvoice(data).subscribe((invoice) => {
       this.eventPerfomed.emit();
       return invoice;
