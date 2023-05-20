@@ -33,17 +33,18 @@ export class ActiveInvoiceComponent {
 
   calculateTotal(): void {
     this.totalPrice = this.items
-      .map((item: any) => item.price * item.quantity)
+      .map((item: any) => item.salePrice * item.quantity)
       .reduce((sum: number, item: any) => sum + item, 0);
   }
 
   saveInvoice() {
     this.calculateTotal();
-    const data = {
-      number: this.invoiceId,
+    const invoice = {
+      number: this.items.length,
       customer_name: 'Shwaib LeBon',
       total: this.totalPrice,
     };
+    const data = {invoice:invoice, data:this.items}
     this.invoiceService.createInvoice(data).subscribe((invoice) => {
       this.eventPerfomed.emit();
       return invoice;
