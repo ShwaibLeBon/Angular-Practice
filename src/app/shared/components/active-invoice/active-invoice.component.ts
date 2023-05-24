@@ -50,7 +50,7 @@ export class ActiveInvoiceComponent {
       const data = {
         itemId:x.id,
         quantity:x.quantity,
-        unit_price:x.salePrice,
+        unitPrice:x.salePrice,
         totalPrice:x.quantity*x.salePrice
       }
       this.cleanedItems.push(data)

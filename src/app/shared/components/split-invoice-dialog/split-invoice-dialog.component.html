@@ -7,7 +7,7 @@
       class="form-control"
       size="sm"
       min="1"
-      [max]="numbers.length"
+      (keyup)="hanlderChange()"
       [(ngModel)]="nbClient"
     />
   </div>
@@ -19,19 +19,18 @@
         <th scope="col" *ngFor="let num of counter(nbClient); let i = index">
           Client {{ i + 1 }}
         </th>
-        <th scope="col">Reste non attribué</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>14</td>
-        <td>13</td>
-        <td *ngFor="let num of counter(nbClient); let i = index">
+      <tr *ngFor="let article of data.items;let i = index" >
+        <td>{{article.items[0].name}}</td>
+        <td>{{article.quantity}}</td>
+        <td *ngFor="let cli of arr">
           <!-- {{ "item" + (i + 1) }} -->
-          <input type="number" class="form-control" />
+          <input type="number" [(ngModel)]="cli.items[i].element" [max]="article.quantity" placeholder="0" class="form-control" />
         </td>
-        <td>10</td>
       </tr>
     </tbody>
   </table>
+  <button class="btn btn-secondary btn-sm" (click)="splitInvoice()">Split</button>
 </div>

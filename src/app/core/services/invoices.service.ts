@@ -42,7 +42,7 @@ export class InvoicesService {
   }
 
   splitInvoice(id: Number, data: any) {
-    return this.apiService.put(`invoice/split-invoice/${id}/`, data).pipe(
+    return this.apiService.post(`invoice/split-invoice/${id}/`, data).pipe(
       map((data) => {
         return data;
       })
