@@ -64,6 +64,7 @@ export class InvoicesListComponent implements OnInit {
 
   openDialog(data: any) {
     this.dialog.open(SplitInvoiceDialogComponent, {
+      panelClass: 'bg-color',
       data: data,
     });
   }

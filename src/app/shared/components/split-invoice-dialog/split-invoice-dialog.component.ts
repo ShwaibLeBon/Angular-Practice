@@ -12,11 +12,18 @@ import {
   styleUrls: ['./split-invoice-dialog.component.scss'],
 })
 export class SplitInvoiceDialogComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private invoiceService: InvoicesService) {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private invoiceService: InvoicesService,
+    private _dialog: MatDialog
+  ) {
     this.clientItems=data.items
     this.invoice = data
   }
 
+  public onClose(): void {
+    this._dialog.closeAll();
+  }
   nbClient = 1;
   arr:any=[];
   clientItems:any=[];
@@ -60,6 +67,7 @@ export class SplitInvoiceDialogComponent {
       this.cleanedItems.push(singleInvoiceEl)
     }
     this.invoiceService.splitInvoice(this.invoice.id,this.cleanedItems).subscribe((invoice) => {
+      this.onClose()
       return invoice;
     });
   }

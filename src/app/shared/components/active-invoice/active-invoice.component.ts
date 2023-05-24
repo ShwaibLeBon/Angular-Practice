@@ -41,7 +41,7 @@ export class ActiveInvoiceComponent {
   saveInvoice() {
     this.calculateTotal();
     const invoice = {
-      number: this.items.length,
+      number: new Date().getTime(),
       customer_name: 'Shwaib LeBon',
       total: this.totalPrice,
     };
