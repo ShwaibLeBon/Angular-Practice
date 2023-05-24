@@ -50,10 +50,14 @@ export class SplitInvoiceDialogComponent {
       let total = this.arr[x].items.map((item: any) => item.element * item.unitPrice)
                           .reduce((sum: number, item: any) => sum + item, 0);
       const invoice = {
-        customer_name : customer_name,
-        number : this.arr[x].items.length,
-        total : total
+          customer_name : customer_name,
+          number : 0,
+          total : total
       }
+      if(x==0)
+        invoice.number=this.arr[x].number
+      else
+        invoice.number=new Date().getTime()
       let singleInvoiceEl = {'invoice':invoice, 'data':[] as any[]};
       for(let y=0;y<this.arr[x].items.length;y++){
         const data = {
