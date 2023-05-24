@@ -36,35 +36,30 @@ export class SplitInvoiceDialogComponent {
       console.log(this.arr)
     }
   }
-/*  calculateTotal(): void {
-    this.totalPrice = this.items
-      .map((item: any) => item.salePrice * item.quantity)
-      .reduce((sum: number, item: any) => sum + item, 0);
-  }*/
-  splitInvoice(){  
-    this.arr.forEach((x:any)=>{
-      let customer_name = `client ${x.client}`
-      let total = x.items.map((item: any) => item.element * item.unitPrice)
+  splitInvoice(){
+    console.log(this.arr) 
+    for(let x =0;x<this.arr.length;x++){
+      let customer_name = `client ${this.arr[x].client}`
+      let total = this.arr[x].items.map((item: any) => item.element * item.unitPrice)
                           .reduce((sum: number, item: any) => sum + item, 0);
       const invoice = {
         customer_name : customer_name,
-        number : x.items.length,
+        number : this.arr[x].items.length,
         total : total
       }
-      x.items.forEach((y:any)=>{
+      let singleInvoiceEl = {'invoice':invoice, 'data':[] as any[]};
+      for(let y=0;y<this.arr[x].items.length;y++){
         const data = {
-          itemId:x.elementId,
-          quantity:x.element,
-          unitPrice:x.unitPrice,
-          totalPrice:x.element*x.unitPrice
+          itemId:this.arr[x].items[y].elementId,
+          quantity:this.arr[x].items[y].element,
+          unitPrice:this.arr[x].items[y].unitPrice,
+          totalPrice:this.arr[x].items[y].element*this.arr[x].items[y].unitPrice
         }
-        this.cleanedItems.push(data)
-      })
-    })
-
-    console.log(this.arr)
-    console.log(this.invoice)
-    this.invoiceService.splitInvoice(this.invoice.id,this.arr).subscribe((invoice) => {
+        singleInvoiceEl.data.push(data)
+      }
+      this.cleanedItems.push(singleInvoiceEl)
+    }
+    this.invoiceService.splitInvoice(this.invoice.id,this.cleanedItems).subscribe((invoice) => {
       return invoice;
     });
   }

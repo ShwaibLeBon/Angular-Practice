@@ -15,16 +15,24 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">Customer</th>
+          <th scope="col">Qty</th>
+          <th scope="col">Item</th>
+          <th scope="col">Unity Price</th>
           <th scope="col">Total Price</th>
         </tr>
       </thead>
       <tbody>
+        <tr *ngFor="let el of item.items">
+          <td>{{el.quantity}}</td>
+          <td>{{el.items[0].name}}</td>
+          <td>{{el.unitPrice}}</td>
+          <td>{{el.totalPrice}}</td>
+        </tr>
         <tr>
           <th scope="row" colspan="100%">Sold Items</th>
         </tr>
         <tr>
-          <td>{{ item.customerName }}</td>
+          <td>{{ item.customer_name }}</td>
           <td>{{ useFormattedMoney(item.total) }}</td>
         </tr>
         <tr>

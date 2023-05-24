@@ -45,7 +45,6 @@ export class ActiveInvoiceComponent {
       customer_name: 'Shwaib LeBon',
       total: this.totalPrice,
     };
-
     this.items.forEach((x:any)=>{
       const data = {
         itemId:x.id,
